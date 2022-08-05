@@ -1,37 +1,40 @@
 import express from "express";
-import exampleStrategy from './example-package/example-implementation.js'
+import exampleStrategy from './example-package/example-strategy.js'
 
-const router = express.Router();
-
-const defaultStrategy = (productId, siteId) => {
+// get related product strategies
+const defaultStrategy = (productName, siteId) => {
     return {
         "message": "This is the default getRelatedProducts() strategy"
     }
 }
 
-const strategyByPackage = {
+const getRelatedProductsStrategiesMap = {
     "example-package": exampleStrategy,
     "default": defaultStrategy
 }
 
-let currentStrategy = defaultStrategy;
+let currentGetRelatedProductsStrategy = defaultStrategy;
+
+
+// endpoints
+const router = express.Router();
 
 router.route("/configure").put(async (req, res) => {
     const packageName = req.body.package
 
-    const newStrategy = strategyByPackage[packageName];
+    const newStrategy = getRelatedProductsStrategiesMap[packageName];
 
     if (!newStrategy) {
-        res.status(400).json("Invalid package name")
-        
+        res.status(400).json("Invalid package name: " + packageName)
+
     } else {
-        currentStrategy = newStrategy
+        currentGetRelatedProductsStrategy = newStrategy
         res.status(204).json()
     }
 });
 
 router.route("/related-products").post(async (req, res) => {
-    const result = currentStrategy(req.body.product_id, req.body.site_id)
+    const result = currentGetRelatedProductsStrategy(req.body.product_name, req.body.site_id)
 
     res.status(200).json(result);
 });
