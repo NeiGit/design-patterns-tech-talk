@@ -4,7 +4,7 @@ import secondStrategy from './iterations/second/solution.js'
 import thirdStrategy from './iterations/third/solution.js'
 
 
-const getRelatedProductsStrategies = {
+const getSuggestedProductsStrategies = {
     "first": firstStrategy,
     "second": secondStrategy,
     "third": thirdStrategy
@@ -18,7 +18,7 @@ const router = express.Router();
 router.route("/configure").put(async (req, res) => {
     const packageName = req.body.package
 
-    const newStrategy = getRelatedProductsStrategies[packageName];
+    const newStrategy = getSuggestedProductsStrategies[packageName];
 
     if (!newStrategy) {
         res.status(400).json("Invalid package name: " + packageName)
@@ -29,11 +29,11 @@ router.route("/configure").put(async (req, res) => {
     }
 });
 
-router.route("/related-products").post(async (req, res) => {
+router.route("/suggested-products").post(async (req, res) => {
     const productName = req.body.product_name;
     const siteId = req.body.site_id;
 
-    const result = currentStrategy.getRelatedProducts(productName, siteId)
+    const result = currentStrategy.getSuggestedProducts(productName, siteId)
 
     res.status(200).json(result);
 });

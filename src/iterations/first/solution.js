@@ -1,24 +1,24 @@
 import products from '../../database/products-local.js'
 
-function getRelatedProducts(productName, siteId) {
+function getSuggestedProducts(productName, siteId) {
 
     const selectedProduct = products.filter(p => p.name === productName)[0]; 
 
-    let relatedProducts;
+    let suggestedProducts;
 
     if (siteId === 'MCO') {
-        relatedProducts = products.filter(p => p.category === selectedProduct.category);
+        suggestedProducts = products.filter(p => p.category === selectedProduct.category);
 
     } else {
-        relatedProducts = products.filter(p => p.category === selectedProduct.category && p.installments > 1)
+        suggestedProducts = products.filter(p => p.category === selectedProduct.category && p.installments > 1)
     }
 
     return {
         "solution": "first",
-        "related_products": relatedProducts
+        "suggested_products": suggestedProducts
     }
 }
 
 export default {
-    getRelatedProducts
+    getSuggestedProducts
 }

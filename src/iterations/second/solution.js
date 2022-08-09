@@ -1,20 +1,20 @@
 import products from '../../database/products-local.js'
 import siteFilterFactory from './site-filter-factory.js'
 
-function getRelatedProducts(productName, siteId) {
+function getSuggestedProducts(productName, siteId) {
 
     const selectedProduct = products.filter(p => p.name === productName)[0]; 
 
     const filter = siteFilterFactory.factoryMethod(siteId, selectedProduct);
 
-    const relatedProducts = products.filter(p => filter.matches(p));
+    const suggestedProducts = products.filter(p => filter.matches(p));
 
     return {
         "solution": "second",
-        "related_products": relatedProducts
+        "suggested_products": suggestedProducts
     }
 }
 
 export default {
-    getRelatedProducts
+    getSuggestedProducts
 }
