@@ -1,6 +1,6 @@
-export default class Filter {
+export default class ProductFilter {
 
-    matches(product) {
+    shouldBeIncluded(product) {
         throw new Error("Not implemented");
     }
     

@@ -7,7 +7,7 @@ function getSuggestedProducts(productName, siteId) {
 
     const filter = siteFilterFactory.factoryMethod(siteId, selectedProduct);
 
-    const suggestedProducts = products.filter(p => filter.matches(p));
+    const suggestedProducts = products.filter(p => filter.shouldBeIncluded(p));
 
     return {
         "solution": "third",

@@ -1,6 +1,6 @@
-import Filter from './filter.js';
+import ProductFilter from './filter.js';
 
-export default class CategoryAndInstallmentsFilter extends Filter {
+export default class CategoryAndInstallmentsFilter extends ProductFilter {
 
     constructor (category, price) {
         super();
@@ -8,7 +8,7 @@ export default class CategoryAndInstallmentsFilter extends Filter {
         this.price = price;
     }
 
-    matches(product) {
+    shouldBeIncluded(product) {
         return product.category === this.category && product.price <= this.price;
     }
 }

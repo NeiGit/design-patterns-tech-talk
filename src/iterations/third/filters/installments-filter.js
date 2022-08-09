@@ -1,13 +1,13 @@
-import Filter from './filter.js';
+import ProductFilter from './filter.js';
 
-export default class InstallmentsFilter extends Filter {
+export default class InstallmentsFilter extends ProductFilter {
 
     constructor (installments) {
         super();
         this.installments = installments;
     }
 
-    matches(product) {
+    shouldBeIncluded(product) {
         return product.installments > this.installments;
     }
 }

@@ -1,13 +1,13 @@
-import Filter from './filter.js';
+import ProductFilter from './filter.js';
 
-export default class PriceFilter extends Filter {
+export default class PriceFilter extends ProductFilter {
 
     constructor (price) {
         super();
         this.price = price;
     }
 
-    matches(product) {
+    shouldBeIncluded(product) {
         return product.price <= this.price;
     }
 }

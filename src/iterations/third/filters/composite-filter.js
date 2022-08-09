@@ -1,13 +1,13 @@
-import Filter from './filter.js';
+import ProductFilter from './filter.js';
 
-export default class CompositeFilter extends Filter {
+export default class CompositeFilter extends ProductFilter {
 
     constructor (filters) {
         super();
         this.filters = filters;
     }
 
-    matches(product) {
-        return this.filters.every(filter => filter.matches(product));
+    shouldBeIncluded(product) {
+        return this.filters.every(filter => filter.shouldBeIncluded(product));
     }
 }
