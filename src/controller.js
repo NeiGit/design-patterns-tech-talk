@@ -16,10 +16,12 @@ let currentStrategy = firstStrategy; // default value
 const router = express.Router();
 
 router.route("/configure").put(async (req, res) => {
-    const newStrategy = getSuggestedProductsStrategies[req.body.strategy];
+    const strategyKey = req.body.strategy;
+
+    const newStrategy = getSuggestedProductsStrategies[strategyKey];
 
     if (!newStrategy) {
-        res.status(400).json("Invalid package name: " + packageName)
+        res.status(400).json("Invalid strategy key: " + strategyKey)
 
     } else {
         currentStrategy = newStrategy
