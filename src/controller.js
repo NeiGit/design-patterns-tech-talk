@@ -16,9 +16,7 @@ let currentStrategy = firstStrategy; // default value
 const router = express.Router();
 
 router.route("/configure").put(async (req, res) => {
-    const packageName = req.body.package
-
-    const newStrategy = getSuggestedProductsStrategies[packageName];
+    const newStrategy = getSuggestedProductsStrategies[req.body.strategy];
 
     if (!newStrategy) {
         res.status(400).json("Invalid package name: " + packageName)
