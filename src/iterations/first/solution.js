@@ -2,15 +2,15 @@ import products from '../../database/products-local.js'
 
 function getSuggestedProducts(productName, siteId) {
 
-    const selectedProduct = products.filter(p => p.name === productName)[0]; 
+    const selectedProduct = products.filter(product => product.name === productName)[0]; 
 
     let suggestedProducts;
 
     if (siteId === 'MCO') {
-        suggestedProducts = products.filter(p => p.category === selectedProduct.category);
+        suggestedProducts = products.filter(product => product.category === selectedProduct.category);
 
     } else {
-        suggestedProducts = products.filter(p => p.category === selectedProduct.category && p.installments > 1)
+        suggestedProducts = products.filter(product => product.category === selectedProduct.category && product.installments > 1)
     }
 
     return {
