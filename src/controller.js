@@ -2,12 +2,14 @@ import express from "express";
 import firstStrategy from './iterations/first/solution.js'
 import secondStrategy from './iterations/second/solution.js'
 import thirdStrategy from './iterations/third/solution.js'
+import arrowFunctionStrategy from './iterations/arrow-functions-approach/solution.js'
 
 
 const getSuggestedProductsStrategies = {
     "first": firstStrategy,
     "second": secondStrategy,
-    "third": thirdStrategy
+    "third": thirdStrategy,
+    "arrow-functions": arrowFunctionStrategy
 }
 
 let currentStrategy = firstStrategy; // default value
