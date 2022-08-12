@@ -1,8 +1,8 @@
 import products from '../../database/products-local.js'
 
-function getSuggestedProducts(productName, siteId) {
+function getSuggestedProducts(productId, siteId) {
 
-    const selectedProduct = products.filter(product => product.name === productName)[0]; 
+    const selectedProduct = products.filter(product => product.id === productId)[0];
 
     let suggestedProducts;
 
