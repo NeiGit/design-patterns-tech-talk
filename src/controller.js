@@ -29,11 +29,11 @@ router.route("/configure").put(async (req, res) => {
     }
 });
 
-router.route("/suggested-products").post(async (req, res) => {
-    const productName = req.body.product_name;
-    const siteId = req.body.site_id;
+router.route("/suggested-products/:productId/:siteId").get(async (req, res) => {
+    const productId = parseInt(req.params.productId);
+    const siteId = req.params.siteId;
 
-    const result = currentStrategy.getSuggestedProducts(productName, siteId)
+    const result = currentStrategy.getSuggestedProducts(productId, siteId)
 
     res.status(200).json(result);
 });
