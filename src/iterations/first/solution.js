@@ -6,11 +6,10 @@ function getSuggestedProducts(productId, siteId) {
 
     let suggestedProducts;
 
-    if (siteId === 'MCO') {
-        suggestedProducts = products.filter(product => product.category === selectedProduct.category);
-
-    } else {
+    if (siteId === 'MLA') {
         suggestedProducts = products.filter(product => product.category === selectedProduct.category && product.installments > 1)
+    } else {
+        suggestedProducts = products.filter(product => product.category === selectedProduct.category);
     }
 
     return {

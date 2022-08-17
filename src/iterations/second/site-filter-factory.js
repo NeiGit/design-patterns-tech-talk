@@ -4,9 +4,9 @@ import CategoryAndPriceFilter from "./filters/category-and-price-filter.js";
 
 const filterBySite = {
     "MCO": product => new CategoryFilter(product.category),
-    "MLA": product => new CategoryAndInstallmentsFilter(product.category),
-    "MLU": product => new CategoryAndInstallmentsFilter(product.category),
-    "MLC": product => new CategoryAndInstallmentsFilter(product.category),
+    "MLA": product => new CategoryAndInstallmentsFilter(product.category, 1),
+    "MLU": product => new CategoryAndInstallmentsFilter(product.category, 1),
+    "MLC": product => new CategoryAndInstallmentsFilter(product.category, 1),
     "MLM": product => new CategoryAndPriceFilter(product.category, 1000)
 }
 
