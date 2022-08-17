@@ -10,7 +10,7 @@ function getSuggestedProducts(productId, siteId) {
     const suggestedProducts = products.filter(product => filter.shouldBeIncluded(product));
 
     return {
-        "solution": "third",
+        "solution": "arrow-functions",
         "suggested_products": suggestedProducts
     }
 }
