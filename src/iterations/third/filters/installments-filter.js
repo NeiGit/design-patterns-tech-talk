@@ -11,3 +11,13 @@ export default class InstallmentsFilter extends ProductFilter {
         return product.installments > this.installments;
     }
 }
+
+let moreThanOneInstallmentFilterInstance;
+
+export const getMoreThanOneInstallmentFilterInstance = () => {
+    if (!moreThanOneInstallmentFilterInstance) {
+        moreThanOneInstallmentFilterInstance = new InstallmentsFilter(1);
+    }
+
+    return moreThanOneInstallmentFilterInstance;
+}

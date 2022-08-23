@@ -1,27 +1,26 @@
 import CategoryFilter from "./filters/category-filter.js";
-import InstallmentsFilter from "./filters/installments-filter.js";
+import InstallmentsFilter, {getMoreThanOneInstallmentFilterInstance} from "./filters/installments-filter.js";
 import PriceFilter from "./filters/price-filter.js";
 import CompositeFilter from "./filters/composite-filter.js";
 
 
-const moreThanOneInstallmentFilterSingleton = new InstallmentsFilter(1);
 
 const filterBySite = {
     "MCO": product => new CategoryFilter(product.category),
 
     "MLA": product => new CompositeFilter([
         new CategoryFilter(product.category), 
-        moreThanOneInstallmentFilterSingleton
+        getMoreThanOneInstallmentFilterInstance()
     ]),
 
     "MLU": product => new CompositeFilter([
         new CategoryFilter(product.category), 
-        moreThanOneInstallmentFilterSingleton
+        getMoreThanOneInstallmentFilterInstance()
     ]),
 
     "MLC": product => new CompositeFilter([
         new CategoryFilter(product.category), 
-        moreThanOneInstallmentFilterSingleton
+        getMoreThanOneInstallmentFilterInstance()
     ]),
 
     "MLM": product => new CompositeFilter([
