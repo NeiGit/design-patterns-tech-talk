@@ -7,7 +7,7 @@ const app = express()
 app.set('port', process.env.PORT || 3005)
 app.use(express.json())
 
-app.use('/design-patterns-example', router)
+app.use('', router)
 
 app.listen(app.get('port'), () => {
     console.log('Server listening on port ' + app.get('port'))
