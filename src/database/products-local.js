@@ -24,21 +24,21 @@ export default
 	{
 		"id": 4,
 		"name": "Adidas Running",
-		"category": "CLOTHING",
+		"category": "CLOTHES",
 		"price": 150,
 		"installments": 3
 	},
 	{
 		"id": 5,
 		"name": "Vans Collection Hat",
-		"category": "CLOTHING",
+		"category": "CLOTHES",
 		"price": 5000,
 		"installments": 6
 	},
 	{
 		"id": 6,
 		"name": "Nike Urban",
-		"category": "CLOTHING",
+		"category": "CLOTHES",
 		"price": 200,
 		"installments": 1
 	},
