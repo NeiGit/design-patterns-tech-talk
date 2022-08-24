@@ -2,6 +2,11 @@
 
 Ejercicio de ejemplo para la charla de patrones de diseño
 
+## Environment setup
+```
+npm install
+```
+
 ## Start app
 
 ```
@@ -10,7 +15,7 @@ npm start
 
 ## Endpoint para consultar productos sugeridos
 
-http://localhost:3005/suggested-products/{product_id}/{site_id} por GET
+http://localhost:3005/suggested-products/{productId}/{siteId} por GET
 
 ### Ejemplo
 
